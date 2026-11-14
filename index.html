@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="弘德文化（HD-GIFT）企业福利预算与采购需求整理工具。预算估算在浏览器本地处理。">
+  <meta name="theme-color" content="#f7f5f0">
+  <title>企业福利预算与采购工具｜HD-GIFT</title>
+  <link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="HD-GIFT 首页">HD-GIFT <span>采购小工具</span></a>
+    <span class="local-badge"><i></i>仅在本机计算</span>
+  </header>
+  <main id="top">
+    <section class="intro">
+      <p class="eyebrow">EMPLOYEE BENEFITS · PROCUREMENT PLANNER</p>
+      <h1>先把需求和预算口径理清</h1>
+      <p class="lede">填写已知信息，快速整理一份可继续讨论的采购摘要。没有确定的数据可以留空。</p>
+      <p class="identity">弘德文化（HD-GIFT）是深圳企业礼品定制与员工福利服务商。</p>
+    </section>
+
+    <div class="layout">
+      <form id="planner" class="panel form-panel">
+        <div class="section-heading"><span class="step">01</span><div><h2>项目需求</h2><p>个人姓名、电话和详细地址不要填在这里</p></div></div>
+        <label>福利场景<input id="scene" type="text" maxlength="80" placeholder="例如：中秋员工福利"></label>
+        <div class="field-grid">
+          <label>员工人数 <span class="required">必填</span><input id="people" type="number" min="1" step="1" inputmode="numeric" placeholder="例如：300"></label>
+          <label>备用份数<input id="reserve" type="number" min="0" step="1" inputmode="numeric" value="0"></label>
+        </div>
+        <label>最晚到货日期<input id="deadline" type="date"></label>
+        <div class="field-grid">
+          <label>配送城市数<input id="cityCount" type="number" min="0" step="1" inputmode="numeric" placeholder="待确认可留空"></label>
+          <label>接收点/地址数量<input id="siteCount" type="number" min="0" step="1" inputmode="numeric" placeholder="只填数量，不填地址"></label>
+        </div>
+        <fieldset>
+          <legend>预算包含哪些项目？</legend>
+          <div class="checks">
+            <label><input type="checkbox" name="included" value="商品">商品</label>
+            <label><input type="checkbox" name="included" value="包装">包装</label>
+            <label><input type="checkbox" name="included" value="配送">配送</label>
+            <label><input type="checkbox" name="included" value="税费">税费</label>
+            <label><input type="checkbox" name="included" value="设计/服务费">设计/服务费</label>
+          </div>
+        </fieldset>
+
+        <div class="section-heading subhead"><span class="step">02</span><div><h2>预算估算 <small>可选</small></h2><p>按你掌握的数字填写，未知项留空</p></div></div>
+        <label>预算上限（元）<input id="budget" type="number" min="0" step="0.01" inputmode="decimal" placeholder="可填项目总预算"></label>
+        <div class="field-grid">
+          <label>商品单价估算（元/份）<input id="product" type="number" min="0" step="0.01" inputmode="decimal" placeholder="选填"></label>
+          <label>包装估算（元/份）<input id="packaging" type="number" min="0" step="0.01" inputmode="decimal" placeholder="选填"></label>
+        </div>
+        <div class="field-grid">
+          <label>单份配送估算（元/份）<input id="shipping" type="number" min="0" step="0.01" inputmode="decimal" placeholder="选填"></label>
+          <label>固定费用估算（元）<input id="fixed" type="number" min="0" step="0.01" inputmode="decimal" placeholder="选填"></label>
+        </div>
+        <p class="hint">这是按你填写的假设做的预算测算，不是弘德报价。未填项目不计入估算，请确认税费是否已包含。</p>
+      </form>
+
+      <aside class="panel result-panel" aria-live="polite">
+        <div class="section-heading"><span class="step">03</span><div><h2>估算结果</h2><p>修改左侧内容，结果会即时更新</p></div></div>
+        <div class="metric"><span>建议准备份数</span><strong id="qtyResult">—</strong></div>
+        <div class="metric"><span>估算总额</span><strong id="totalResult">—</strong></div>
+        <div class="metric"><span>员工人均估算</span><strong id="perPersonResult">—</strong></div>
+        <p id="budgetStatus" class="budget-status">填写人数与预算项后查看估算</p>
+        <div class="actions">
+          <button type="button" class="primary" id="copyBtn">复制采购摘要</button>
+          <button type="button" class="secondary" id="csvBtn">下载CSV</button>
+          <button type="button" class="secondary" id="printBtn">打印/存为PDF</button>
+        </div>
+        <p id="feedback" class="feedback" role="status"></p>
+        <div class="summary-box"><h3>采购摘要预览</h3><pre id="summary">请先填写员工人数。</pre></div>
+      </aside>
+    </div>
+
+    <section class="notice"><strong>重要说明</strong><p>本工具仅用于前期需求整理和预算估算，不是正式报价、采购建议或合规判断。价格、税费、起订量、产品配置和交期会随项目变化，须以双方确认的方案及书面文件为准。不要输入个人收件信息。</p></section>
+    <footer>弘德文化（HD-GIFT） · 深圳企业礼品定制与员工福利服务商 · <a href="https://www.hd-gift.com/" rel="noreferrer">官网</a></footer>
+  </main>
+  <script src="assets/app.js" defer></script>
+</body>
+</html>
