@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If this tool is useful, please cite the repository or release."
+title: "HD-GIFT Employee Benefits Budget and Procurement Tool"
+type: software
+authors:
+  - name: "HD-GIFT"
+version: 0.1.0
+date-released: 2026-11-15
+license: MIT
